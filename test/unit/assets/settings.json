@@ -1,0 +1,12 @@
+{
+    "settings_testing" : "value",
+    "scoped" : {
+        "setting" : "v",
+        "deeper" : {
+            "second_level" : "config_setting",
+            "deepest" : {
+                "third_level" : "yahoo"
+            }
+        }
+    }
+}

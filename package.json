@@ -1,0 +1,30 @@
+{
+  "name": "n-app-conf",
+  "version": "0.0.1",
+  "description": "Simple application configuration utility that loads configuration values from a .json-formatted file and allows overrides to be provided via environment variables.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nodeunit test/unit/n-app-conf-fixture.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ciroque/n-app-conf.git"
+  },
+  "keywords": [
+    "node.js",
+    "conf",
+    "configuration",
+    "settings",
+    "environment",
+    "json"
+  ],
+  "author": "Steve Wagner (ciroque)",
+  "license": "BSD",
+  "dependencies" : {
+    "node.extend" : "1.0.0"
+    , "nodeunit":"0.7.4"
+  }
+}
