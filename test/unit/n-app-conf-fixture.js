@@ -7,33 +7,20 @@
 var nodeunit_module = require('nodeunit');
 var test_case = nodeunit_module.testCase;
 
-var settings_module = require('../../lib/n-app-conf');
+var settings_module = require('../../dist/n-app-conf');
 
-var SETTINGS_TEST_FILE = './assets/settings.json';
+var SETTINGS_TEST_FILE = 'test/unit/assets/settings.json';
 
 exports.primaryTestGroup = test_case(
     {
-        noOptionParametersFails : function(test) {
-
-            test.expect(1);
-
-            try {
-                new settings_module.Settings();
-            } catch(err) {
-
-                test.ok(err.indexOf('A filename parameter or options object needs to be provided.') > -1);
-            }
-
-            test.done();
-        },
-
         stringFilenameOptionWorks : function(test) {
             test.expect(2);
 
-            var settings = settings_module.Settings(SETTINGS_TEST_FILE);
+            var options = new settings_module.Options(SETTINGS_TEST_FILE);
+            var settings = new settings_module.Settings(options);
 
-            test.equal(settings.settings_testing, 'value');
-            test.equal(settings.scoped.setting, 'v');
+            test.equal(settings.entries.settings_testing, 'value');
+            test.equal(settings.entries.scoped.setting, 'v');
 
             test.done();
         },
@@ -45,9 +32,10 @@ exports.primaryTestGroup = test_case(
 
             process.env['settings_testing'] = settings_testing_override;
 
-            var settings = settings_module.Settings(SETTINGS_TEST_FILE);
+            var options = new settings_module.Options(SETTINGS_TEST_FILE);
+            var settings = new settings_module.Settings(options);
 
-            test.equal(settings.settings_testing, settings_testing_override);
+            test.equal(settings.entries.settings_testing, settings_testing_override);
 
             process.env['settings_testing'] = null;
 
@@ -61,9 +49,10 @@ exports.primaryTestGroup = test_case(
 
             process.env['scoped__setting'] = settings_testing_override;
 
-            var settings = settings_module.Settings(SETTINGS_TEST_FILE);
+            var options = new settings_module.Options(SETTINGS_TEST_FILE);
+            var settings = new settings_module.Settings(options);
 
-            test.equal(settings.scoped.setting, settings_testing_override);
+            test.equal(settings.entries.scoped.setting, settings_testing_override);
 
             process.env['scoped__setting'] = null;
 
@@ -77,9 +66,10 @@ exports.primaryTestGroup = test_case(
 
             process.env['scoped__deeper__deepest__third_level'] = settings_testing_override;
 
-            var settings = settings_module.Settings(SETTINGS_TEST_FILE);
+            var options = new settings_module.Options(SETTINGS_TEST_FILE);
+            var settings = new settings_module.Settings(options);
 
-            test.equal(settings.scoped.deeper.deepest.third_level, settings_testing_override);
+            test.equal(settings.entries.scoped.deeper.deepest.third_level, settings_testing_override);
 
             process.env['scoped__deeper__deepest__third_level'] = null;
 

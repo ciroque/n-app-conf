@@ -1,34 +1,39 @@
 {
-    "author": "Steve Wagner (ciroque)",
-    "dependencies" : {
-        "node.extend" : "1.1.6"
-        , "nodeunit":"0.7.4"
-    },
-    "description": "Simple application configuration utility that loads configuration values from a .json-formatted file and allows overrides to be provided via environment variables.",
-    "directories": {
-        "lib" : "lib",
-        "test": "test",
-        "unit_tests" : "test/unit",
-        "test_assets" : "test/unit/assets"
-    },
-    "engines" : { "node" : ">=0.8.2" },
-    "keywords": [
-        "node.js",
-        "conf",
-        "configuration",
-        "settings",
-        "environment",
-        "json"
-    ],
-    "license": "BSD",
-    "main": "index.js",
-    "name": "n-app-conf",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ciroque/n-app-conf.git"
-    },
-    "scripts": {
-        "test": "nodeunit test/unit/n-app-conf-fixture.js"
-    },
-    "version": "0.1.0"
+  "author": "Steve Wagner (ciroque)",
+  "dependencies": {
+    "node-extend": "^0.2.0",
+    "nodeunit": "^0.10.2"
+  },
+  "description": "Simple application configuration utility that loads configuration values from a .json-formatted file and allows overrides to be provided via environment variables.",
+  "directories": {
+    "lib": "lib",
+    "test": "test",
+    "unit_tests": "test/unit",
+    "test_assets": "test/unit/assets"
+  },
+  "engines": {
+    "node": ">=0.8.2"
+  },
+  "keywords": [
+    "node.js",
+    "conf",
+    "configuration",
+    "settings",
+    "environment",
+    "json"
+  ],
+  "license": "BSD",
+  "main": "index.js",
+  "name": "n-app-conf",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ciroque/n-app-conf.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "typings",
+    "test": "nodeunit test/unit/n-app-conf-fixture.js",
+    "typings": "typings install"
+  },
+  "version": "0.1.0"
 }

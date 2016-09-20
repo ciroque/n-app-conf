@@ -1,1 +1,1 @@
-module.exports = require( './lib/n-app-conf' );
+module.exports = require( './dist/n-app-conf' );
