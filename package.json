@@ -2,7 +2,8 @@
   "author": "Steve Wagner (ciroque)",
   "dependencies": {
     "node-extend": "^0.2.0",
-    "nodeunit": "^0.10.2"
+    "nodeunit": "^0.10.2",
+    "uglify-js": "^2.7.3"
   },
   "description": "Simple application configuration utility that loads configuration values from a .json-formatted file and allows overrides to be provided via environment variables.",
   "directories": {
@@ -31,6 +32,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "minify": "node_modules/.bin/uglifyjs dist/n-app-conf.js -c -m -o dist/n-app-conf.min.js",
     "postinstall": "typings",
     "test": "nodeunit test/unit/n-app-conf-fixture.js",
     "typings": "typings install"
