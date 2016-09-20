@@ -34,7 +34,7 @@
   "scripts": {
     "build": "tsc",
     "minify": "node_modules/.bin/uglifyjs dist/n-app-conf.js -c -m -o dist/n-app-conf.min.js",
-    "postinstall": "typings",
+    "postinstall": "typings install",
     "test": "nodeunit test/unit/n-app-conf-fixture.js",
     "typings": "typings install"
   },
